@@ -18,7 +18,7 @@
 #include "Stack.h"
 
 /**
- * @class Add_Command
+ * @class Divide_Command
  *
  * 
  */

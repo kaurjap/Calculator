@@ -10,13 +10,6 @@ project (assignment2) {
 
   Source_Files {
     driver.cpp
-  }
-
-  Template_Files {
-    Array_Base.cpp
-    Array.cpp
-    Stack.cpp
-    Expr_Command_Iterator.cpp
     Expr_Command.cpp
     Add_Command.cpp
     Subtract_Command.cpp
@@ -24,5 +17,12 @@ project (assignment2) {
     Divide_Command.cpp
     Modulus_Command.cpp
     Number_Command.cpp
+  }
+
+  Template_Files {
+    Array_Base.cpp
+    Array.cpp
+    Stack.cpp
+    Expr_Command_Iterator.cpp
   }
 }

@@ -68,7 +68,6 @@ protected:
 };
 
 
-// #include "Array_Iterator.inl"
 #include "Expr_Command_Iterator.cpp"
 
 #endif   // !defined _EXPR_COMMAND_ITERATOR_H_
