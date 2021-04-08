@@ -1,4 +1,4 @@
-// $Id: assignment3.mpc 2021-04-08 22:09:38Z japkaur $
+// $Id: assignment3.mpc 2021-04-08 japkaur $
 
 project (assignment3) {
   exename = assignment3
