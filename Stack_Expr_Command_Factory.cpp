@@ -13,12 +13,12 @@ Stack_Expr_Command_Factory::Stack_Expr_Command_Factory (Stack <int> & s)
 
 } // end constructor
 
-
+/*
 Stack_Expr_Command_Factory::~Stack_Expr_Command_Factory (void)
 {
     // nothing allocated on the heap in this class, so nothing to delete
 } // end destructor
-
+*/
 
 Number_Command * Stack_Expr_Command_Factory::create_number_command (int num)
 {

@@ -30,7 +30,7 @@ public:
     Stack_Expr_Command_Factory (Stack <int> & s);
 
     // destructor
-    virtual ~Stack_Expr_Command_Factory (void);
+    // virtual ~Stack_Expr_Command_Factory (void);      // prolly don't need it because if I define one here, I have to define one for the subclass (which will be empty, so it calls this --> error: undefined reference)
 
     // methods to return concrete products i.e. specific commands to operate on the stack
     virtual Number_Command * create_number_command (int num);
