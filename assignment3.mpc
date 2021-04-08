@@ -17,5 +17,12 @@ project (assignment2) {
     Array.cpp
     Stack.cpp
     Expr_Command_Iterator.cpp
+    Expr_Command.cpp
+    Add_Command.cpp
+    Subtract_Command.cpp
+    Multiply_Command.cpp
+    Divide_Command.cpp
+    Modulus_Command.cpp
+    Number_Command.cpp
   }
 }

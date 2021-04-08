@@ -40,7 +40,6 @@ public:
     ~Expr_Command_Iterator (void);
 
     /**
-     * Retrieve the current size of the array.
     *
     * @return          true      if current location is greater than or equal to current size
     *                  false     if current location is less than current size
