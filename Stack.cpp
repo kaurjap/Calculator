@@ -64,7 +64,7 @@ void Stack <T>::push (T element)
 // pop
 //
 template <typename T>
-void Stack <T>::pop (void)
+T Stack <T>::pop (void)
 {
     if (is_empty()) {
         empty_exception ex;
@@ -82,8 +82,10 @@ void Stack <T>::pop (void)
         //  I was deleting the first added element from the stack. Hence, Dr. Hill,
         // I resolved this issue by deleting the last element from the stack's array,
         // basically by resizing the stack to one size less.
-
+        
+        T top_element = array_.get (array_.size() - 1);
         array_.resize (array_.size() - 1);
+        return top_element;
     } // end if-else
 } // end pop
 

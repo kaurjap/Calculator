@@ -9,7 +9,6 @@ project (assignment3) {
   }
 
   Source_Files {
-    main.cpp
     Expr_Command.cpp
     Add_Command.cpp
     Subtract_Command.cpp
@@ -19,6 +18,7 @@ project (assignment3) {
     Number_Command.cpp
     Expr_Command_Factory.cpp
     Stack_Expr_Command_Factory.cpp
+    main.cpp
   }
 
   Template_Files {

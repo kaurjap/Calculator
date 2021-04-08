@@ -4,14 +4,19 @@
 #include <string>
 #include <sstream>          // for std::istringstream
 
-#include "Stack_Expr_Command_Factory.h"
-#include "Expr_Command_Iterator.h"
+//#include "Stack_Expr_Command_Factory.h"
+//#include "Expr_Command_Iterator.h"
 
 int main (int argc, char * argv [])
 {
     // get input from the user and store it in the infix string variable
     std::string infix;
+    std::cout << "Please enter your expression: " << std::endl;
+    std::cin >> infix;
 
+    std::cout << infix;
+
+    /*
     // stack on which the operations will be performed
     Stack <int> stack;
 
@@ -30,6 +35,6 @@ int main (int argc, char * argv [])
     int result = stack.top();
 
     std::cout << "Result: " << result << std::endl;
-
+    */
     return 0;
 } // end main
