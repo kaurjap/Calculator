@@ -1,7 +1,7 @@
-// $Id: assignment2.mpc 378 2010-02-07 22:09:38Z hillj $
+// $Id: assignment3.mpc 2021-04-08 22:09:38Z japkaur $
 
-project (assignment2) {
-  exename = assignment2
+project (assignment3) {
+  exename = assignment3
   install = .
  
   specific (make, gnuace) {
@@ -9,7 +9,7 @@ project (assignment2) {
   }
 
   Source_Files {
-    driver.cpp
+    main.cpp
     Expr_Command.cpp
     Add_Command.cpp
     Subtract_Command.cpp
@@ -17,6 +17,8 @@ project (assignment2) {
     Divide_Command.cpp
     Modulus_Command.cpp
     Number_Command.cpp
+    Expr_Command_Factory.cpp
+    Stack_Expr_Command_Factory.cpp
   }
 
   Template_Files {

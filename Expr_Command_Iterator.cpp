@@ -29,6 +29,13 @@ bool Expr_Command_Iterator <T>::is_done (void) const
 
 
 template <typename T>
+void Expr_Command_Iterator <T>::advance (void)
+{
+    curr_location_++;
+} // end advance
+
+
+template <typename T>
 T & Expr_Command_Iterator <T>::operator * (void)
 {
     return array_->data_[curr_location_];

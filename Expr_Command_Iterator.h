@@ -45,6 +45,12 @@ public:
     *                  false     if current location is less than current size
     */
     bool is_done (void) const;
+    
+    /**
+     * Increment the curr_location_
+    * 
+    */
+    void advance (void);
 
     /**
      * @return          reference to the current element
