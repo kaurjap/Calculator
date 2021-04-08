@@ -30,7 +30,7 @@ class Expr_Command_Factory
 {
 public:
     // destructor
-    virtual ~Expr_Command_Factory (void) = 0;
+    // virtual ~Expr_Command_Factory (void) = 0;    prolly don't need it because if I define one here, I have to define one for the subclass (which will be empty, so it calls this --> error: undefined reference)
 
     // methods to return products i.e. specific commands
     virtual Number_Command * create_number_command (int num) = 0;
@@ -45,7 +45,7 @@ public:
 
 private:
 
-    
+
 };
 
 #endif   // !defined _EXPR_COMMAND_FACTORY_H_
