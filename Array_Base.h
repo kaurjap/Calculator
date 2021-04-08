@@ -196,7 +196,7 @@ protected:
   size_t max_size_;
 
   // declaring the iterator class a friend so it can access the private variables directly
-  friend class Array_Iterator;
+  friend class Expr_Command_Iterator;
 };
 
 #include "Array_Base.inl"

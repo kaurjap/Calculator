@@ -16,5 +16,6 @@ project (assignment2) {
     Array_Base.cpp
     Array.cpp
     Stack.cpp
+    Expr_Command_Iterator.cpp
   }
 }

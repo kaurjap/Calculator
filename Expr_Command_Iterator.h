@@ -11,8 +11,8 @@
  */ 
 //==============================================================================
 
-#ifndef _ARRAY_ITERATOR_H_
-#define _ARRAY_ITERATOR_H_
+#ifndef _EXPR_COMMAND_ITERATOR_H_
+#define _EXPR_COMMAND_ITERATOR_H_
 
 #include "Array_Base.h"
 
@@ -23,7 +23,7 @@
  * Basic implementation of an iterator class for the Array.
  */
 template <typename T>
-class Array_Iterator
+class Expr_Command_Iterator
 {
 public:
     /// Type definition of the element type.
@@ -34,10 +34,10 @@ public:
     *
     * @param[in]      arr        Array to iterate over
     */
-    Array_Iterator (Array_Base <T> & arr);
+    Expr_Command_Iterator (Array_Base <T> & arr);
 
     /// Destructor.
-    ~Array_Iterator (void);
+    ~Expr_Command_Iterator (void);
 
     /**
      * Retrieve the current size of the array.
@@ -70,6 +70,6 @@ protected:
 
 
 // #include "Array_Iterator.inl"
-#include "Array_Iterator.cpp"
+#include "Expr_Command_Iterator.cpp"
 
-#endif   // !defined _ARRAY_ITERATOR_H_
+#endif   // !defined _EXPR_COMMAND_ITERATOR_H_
