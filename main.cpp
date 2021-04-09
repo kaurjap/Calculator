@@ -10,9 +10,10 @@
 int main (int argc, char * argv [])
 {
     // get input from the user and store it in the infix string variable
+    // default token is a space, so use getlin
     std::string infix;
     std::cout << "Please enter your expression: " << std::endl;
-    std::cin >> infix;
+    std::getline(std::cin, infix);
 
     std::cout << infix;
 
