@@ -23,10 +23,14 @@ int main (int argc, char * argv [])
     // stack on which the operations will be performed
     Stack <int> receiver;
 
+    std::cout << "print 1 \n";
+
     // convert from the infix format to the postfix format i.e. an array of command * in postfix format
     Stack_Expr_Command_Factory factory (receiver);    // factory is what creates the commands
     Array <Expr_Command *> postfix;                 // array where the postfix commands are stored
     infix_to_postfix (infix, factory, postfix);
+
+    std::cout << "print 2 \n";
 
     // execute each command to compute the result
     typedef Expr_Command_Iterator <Expr_Command *> Iterator;
