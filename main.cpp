@@ -42,6 +42,7 @@ int main (int argc, char * argv [])
 
     int result = receiver.top();
 
+    std::cout << "print 4\n";
     std::cout << "Result: " << result << std::endl;
     
     return 0;
