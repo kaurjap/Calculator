@@ -196,6 +196,7 @@ protected:
   size_t max_size_;
 
   // declaring the iterator class a friend so it can access the private variables directly
+  template <typename S>
   friend class Expr_Command_Iterator;
 };
 

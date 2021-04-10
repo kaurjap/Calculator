@@ -8,7 +8,7 @@
 #include "Open_Paranthesis_Command.h"
 
 Open_Paranthesis_Command::Open_Paranthesis_Command (void)
-    : precedence_val_ (10)
+    : Expr_Command (10)
 {
 
 } // end constructor

@@ -15,6 +15,12 @@ Expr_Command::Expr_Command (void)
 
 } // end constructor
 
+Expr_Command::Expr_Command (int n)
+    : precedence_val_ (n)
+{
+
+} // end initialization constructor for predence value
+
 
 int Expr_Command::precedence (void)
 {

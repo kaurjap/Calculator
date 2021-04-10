@@ -14,8 +14,8 @@
 #ifndef _ADD_COMMAND_H_
 #define _ADD_COMMAND_H_
 
-#include "Expr_Command.h"
 #include "Stack.h"
+#include "Expr_Command.h"
 
 /**
  * @class Add_Command
@@ -37,8 +37,7 @@ private:
     // receiver
     Stack <int> & s_;
 
-    // precedence value of an operation based on pemdas
-    int precedence_;
+
 };
 
 

@@ -10,7 +10,7 @@
 
 Modulus_Command::Modulus_Command (Stack <int> & s)
     : s_ (s),
-      precedence_val_ (2)
+      Expr_Command (1)  // setting precedence value
 {
 
 } // end constructor

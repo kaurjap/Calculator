@@ -28,6 +28,9 @@ public:
     // constructor
     Expr_Command (void);
 
+    // initialization constructor
+    Expr_Command (int n);
+
     /**
     * a pure virtual method
     *  
@@ -43,7 +46,7 @@ public:
     virtual int precedence (void);
 
 protected:
-    int precedence_val_; // initialize precedence in the header file only
+    int precedence_val_;
 };
 
 #endif   // !defined _EXPR_COMMAND_H_

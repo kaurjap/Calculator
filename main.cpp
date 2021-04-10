@@ -29,8 +29,8 @@ int main (int argc, char * argv [])
     infix_to_postfix (infix, factory, postfix);
 
     // execute each command to compute the result
-    typedef Expr_Command_Iterator <Expr_Command *> iterator;
-    for (iterator iter (postfix); !iter.is_done (); iter.advance ()) {
+    typedef Expr_Command_Iterator <Expr_Command *> Iterator;
+    for (Iterator iter (postfix); !iter.is_done (); iter.advance ()) {
         (*iter)->execute ();
     } // end for
 

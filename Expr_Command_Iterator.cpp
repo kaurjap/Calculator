@@ -24,7 +24,7 @@ Expr_Command_Iterator <T>::~Expr_Command_Iterator (void)
 template <typename T>
 bool Expr_Command_Iterator <T>::is_done (void) const
 {
-    return (curr_location_ >= array_->cur_size_);
+    return (curr_location_ >= array_.cur_size_);
 } // end is_done
 
 
@@ -38,12 +38,12 @@ void Expr_Command_Iterator <T>::advance (void)
 template <typename T>
 T & Expr_Command_Iterator <T>::operator * (void)
 {
-    return array_->data_[curr_location_];
+    return array_.data_[curr_location_];
 } // end operator *
 
 
 template <typename T>
 T * Expr_Command_Iterator <T>::operator -> (void)
 {
-    return &array_->data_[curr_location_];
+    return &array_.data_[curr_location_];
 } // end operator ->
