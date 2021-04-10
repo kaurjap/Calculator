@@ -16,35 +16,45 @@ int main (int argc, char * argv [])
     // get input from the user and store it in the infix string variable
     // default token is a space, so use getline
     std::string infix;
-    std::cout << "Please enter your expression: " << std::endl;
-    std::getline(std::cin, infix);
-    std::cout << std::endl;
-    
-    // stack on which the operations will be performed
-    Stack <int> receiver;
 
-    std::cout << "print 1 \n";
+    // while loop to keep executing until quit
+    bool quit = false;
+    while (quit == false) {
+        std::cout << "Please enter your expression: " << std::endl;
+        std::getline(std::cin, infix);
+        std::cout << std::endl;
+        
+        if (infix == "QUIT") {
+            quit = true;
+        } else {
+            // stack on which the operations will be performed
+            Stack <int> receiver;
 
-    // convert from the infix format to the postfix format i.e. an array of command * in postfix format
-    Stack_Expr_Command_Factory factory (receiver);    // factory is what creates the commands
-    Array <Expr_Command *> postfix;                 // array where the postfix commands are stored
-    infix_to_postfix (infix, factory, postfix);
+            std::cout << "print 1 \n";
 
-    std::cout << "print 2 \n";
+            // convert from the infix format to the postfix format i.e. an array of command * in postfix format
+            Stack_Expr_Command_Factory factory (receiver);    // factory is what creates the commands
+            Array <Expr_Command *> postfix;                 // array where the postfix commands are stored
+            infix_to_postfix (infix, factory, postfix);
 
-    // execute each command to compute the result
-    typedef Expr_Command_Iterator <Expr_Command *> Iterator;
-    for (Iterator iter (postfix); !iter.is_done (); iter.advance ()) {
-        (*iter)->execute ();
-    } // end for
+            std::cout << "print 2 \n";
 
-    std::cout << "print 3\n";
+            // execute each command to compute the result
+            typedef Expr_Command_Iterator <Expr_Command *> Iterator;
+            for (Iterator iter (postfix); !iter.is_done (); iter.advance ()) {
+                (*iter)->execute ();
+            } // end for
 
-    int result = receiver.top();
+            std::cout << "print 3\n";
 
-    std::cout << "print 4\n";
-    std::cout << "Result: " << result << std::endl;
-    
+            int result = receiver.top();
+
+            std::cout << "print 4\n";
+            std::cout << "Result: " << result << std::endl;
+        } // end if-else  
+
+    } // end while
+
     return 0;
 } // end main
 
@@ -65,6 +75,7 @@ int main (int argc, char * argv [])
 // method to perform the actual parsing of the user input to create an array of commands that are executable
 bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory, Array <Expr_Command *> & postfix)
 {
+
     std::istringstream input(infix); // parser
     input.clear();      // clear the error state of the parser stream just in case
     std::string token;
@@ -95,8 +106,8 @@ bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory
                 command = factory.create_open_paranthesis_command ();
             } else if (token == ")") {
                 command = factory.create_closed_paranthesis_command ();
-            } else if (token == "QUIT") {
-                return false;
+            } else {
+                return false; // input not valid
             } // end if-else
         } // end if-else
 
