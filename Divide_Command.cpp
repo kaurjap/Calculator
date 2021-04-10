@@ -9,7 +9,8 @@
 
 
 Divide_Command::Divide_Command (Stack <int> & s)
-    : s_ (s)
+    : s_ (s),
+      precedence_val_ (2)
 {
 
 } // end constructor

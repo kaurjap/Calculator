@@ -48,3 +48,21 @@ Divide_Command * Stack_Expr_Command_Factory::create_divide_command (void)
 {
     return new Divide_Command (stack_);
 } // end create_add_command
+
+
+Modulus_Command * Stack_Expr_Command_Factory::create_modulus_command (void) 
+{
+    return new Modulus_Command (stack_);
+} // end create_modulus_command
+
+
+Open_Paranthesis_Command * Stack_Expr_Command_Factory::create_open_paranthesis_command (void)
+{
+    return new Open_Paranthesis_Command ();
+} // end create_open_paranthesis_command
+
+
+Closed_Paranthesis_Command * Stack_Expr_Command_Factory::create_closed_paranthesis_command (void)
+{
+    return new Closed_Paranthesis_Command ();
+} // end create_open_paranthesis_command

@@ -10,7 +10,8 @@
 
 Number_Command::Number_Command (Stack <int> & s, int n)
     : s_ (s),
-      n_ (n)
+      n_ (n),
+      precedence_val_ (0)
 {
 
 } // end constructor

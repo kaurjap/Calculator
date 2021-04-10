@@ -19,6 +19,9 @@
 #include "Subtract_Command.h"
 #include "Multiply_Command.h"
 #include "Divide_Command.h"
+#include "Modulus_Command.h"
+#include "Open_Paranthesis_Command.h"
+#include "Closed_Paranthesis_Command.h"
 
 /**
  * @class Expr_Command_Factory
@@ -42,6 +45,12 @@ public:
     virtual Multiply_Command * create_multiply_command (void) = 0;
 
     virtual Divide_Command * create_divide_command (void) = 0;
+
+    virtual Modulus_Command * create_modulus_command (void) = 0;
+
+    virtual Open_Paranthesis_Command * create_open_paranthesis_command (void) = 0;
+
+    virtual Closed_Paranthesis_Command * create_closed_paranthesis_command (void) = 0;
 
 private:
 

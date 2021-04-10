@@ -9,7 +9,8 @@
 
 
 Add_Command::Add_Command (Stack <int> & s)
-    : s_ (s)
+    : s_ (s),
+      precedence_val_ (1)
 {
 
 } // end constructor

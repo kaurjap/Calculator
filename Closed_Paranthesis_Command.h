@@ -2,7 +2,7 @@
 
 //==============================================================================
 /**
- * @file       Add_Command.h
+ * @file       Closed_Paranthesis_Command.h
  *
  * Honor Pledge:
  *
@@ -11,35 +11,31 @@
  */ 
 //==============================================================================
 
-#ifndef _ADD_COMMAND_H_
-#define _ADD_COMMAND_H_
+#ifndef _CLOSED_PARANTHESIS_COMMAND_H_
+#define _CLOSED_PARANTHESIS_COMMAND_H_
 
 #include "Expr_Command.h"
 #include "Stack.h"
 
 /**
- * @class Add_Command
+ * @class Closed_Paranthesis_Command
  *
  * 
  */
-class Add_Command: public Expr_Command
+class Closed_Paranthesis_Command: public Expr_Command 
 {
 public:
     // constructor
-    Add_Command (Stack <int> & s);
+    Closed_Paranthesis_Command (void);
 
     /**
-    * method that defines how to execute the addition command of addition two numbers on the stack
-    */
+     * method to execute behavior when a closed parathesis is accounted
+    */ 
     virtual void execute (void);
 
 private:
-    // receiver
-    Stack <int> & s_;
-
-    // precedence value of an operation based on pemdas
-    int precedence_;
+    // no stack needed
 };
 
 
-#endif   // !defined _ADD_COMMAND_H_
+#endif   // !defined _CLOSED_PARANTHESIS_COMMAND_H_
