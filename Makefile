@@ -7,7 +7,7 @@
 # this file will be lost the next time it is generated.
 #
 # MPC Command:
-# "/Users/japneetkaur/OneDrive - Indiana University/CS Projects/MPC/mwc.pl" -type make
+# /home/japkaur/MPC/mwc.pl -type make
 #
 #----------------------------------------------------------------------------
 
