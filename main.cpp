@@ -38,6 +38,8 @@ int main (int argc, char * argv [])
         (*iter)->execute ();
     } // end for
 
+    std::cout << "print 3\n";
+
     int result = receiver.top();
 
     std::cout << "Result: " << result << std::endl;

@@ -45,5 +45,5 @@ T & Expr_Command_Iterator <T>::operator * (void)
 template <typename T>
 T * Expr_Command_Iterator <T>::operator -> (void)
 {
-    return &array_.data_[curr_location_];
+    return &(array_.data_[curr_location_]);
 } // end operator ->
