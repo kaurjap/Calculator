@@ -17,6 +17,9 @@
 #include "Expr_Command.h"
 #include "Stack.h"
 
+// COMMENT: Create a design that does not require having parenthesis as
+ // as command object since parenthesis are not executed.
+
 /**
  * @class Closed_Paranthesis_Command
  *

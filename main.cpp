@@ -58,6 +58,9 @@ int main (int argc, char * argv [])
 } // end main
 
 
+// COMMENT: Instead of using C functions to implement parts of the
+// calculator. It would be better suited to use a Wrapper Facade.
+
 
 /**
  * PRIORITY OF COMMANDS: (larger = greater precedence)
