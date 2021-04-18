@@ -186,8 +186,8 @@ public:
   Array_Base <T> slice (size_t begin, size_t end) const;
 
 protected:
-  /// Pointer to the actual data.
-  T * data_;
+  /// Pointer to the actual data using the proxy auto pointer class
+  Array_Auto_Ptr <T> * data_;
 
   /// Current size of the array.
   size_t cur_size_;
