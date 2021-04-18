@@ -110,6 +110,10 @@ bool infix_to_postfix (const std::string & infix, Stack_Expr_Command_Factory & f
     Expr_Command * command = 0;
     size_t size_counter = 0;   // counter to keep track of the size of the array and add elements
     
+    if (!temp_stack.is_empty ()) {
+        std::cout << "Temp stack is not empty" << std::endl;
+    }
+
     while (!parser.eof ()) {
         // parsing
         parser >> token;
@@ -178,8 +182,9 @@ bool infix_to_postfix (const std::string & infix, Stack_Expr_Command_Factory & f
             // now push the current command
             temp_stack.push (command);
         } // end if-else
+    } // end while
 
-        // pop the remaining operators from the stack and add to postfix
+    // pop the remaining operators from the stack and add to postfix
         while (!temp_stack.is_empty ()) {
             if (postfix.size () <= size_counter) {
                 postfix.resize (size_counter + 5);
@@ -187,7 +192,6 @@ bool infix_to_postfix (const std::string & infix, Stack_Expr_Command_Factory & f
             postfix [size_counter] = temp_stack.pop ();
             size_counter ++;
         } // end while
-    } // end while
 
     postfix.resize (size_counter); // resize postfix to its true size i.e. how many commands
 
