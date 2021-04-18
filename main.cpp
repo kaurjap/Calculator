@@ -65,9 +65,9 @@ int main (int argc, char * argv [])
             postfix[0]->execute ();
             print (receiver);
             postfix[1]->execute ();
-            print (receiver);
-            postfix[2]->execute ();
-            print (receiver);
+            //print (receiver);
+            //postfix[2]->execute ();
+            //print (receiver);
             
             std::cout << "print 3\n";
 
@@ -185,13 +185,13 @@ bool infix_to_postfix (const std::string & infix, Stack_Expr_Command_Factory & f
     } // end while
 
     // pop the remaining operators from the stack and add to postfix
-        while (!temp_stack.is_empty ()) {
-            if (postfix.size () <= size_counter) {
-                postfix.resize (size_counter + 5);
-            } // end if
-            postfix [size_counter] = temp_stack.pop ();
-            size_counter ++;
-        } // end while
+    while (!temp_stack.is_empty ()) {
+        if (postfix.size () <= size_counter) {
+            postfix.resize (size_counter + 5);
+        } // end if
+        postfix [size_counter] = temp_stack.pop ();
+        size_counter ++;
+    } // end while
 
     postfix.resize (size_counter); // resize postfix to its true size i.e. how many commands
 
