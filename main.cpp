@@ -102,12 +102,14 @@ bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory
         // parsing
         parser >> number;
         if (!parser.fail()) {
+            std::cout << number << "\n";
             // the current token is a number
             command = factory.create_number_command (number);
         } else if (parser.fail()) {
             // the current token is not a number
             parser.clear(); // clear the error bit and continue parsing
             parser >> token;
+            std::cout << token << "\n";
             if (token == "+") {
                 command = factory.create_add_command ();
             } else if (token == "-") {
