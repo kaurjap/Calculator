@@ -102,15 +102,17 @@ bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory
     while (!parser.eof ()) {
         // parsing
         parser >> token;
-        if (std::isdigit (token[0])) {
-            std::cout << "print 11: token: " << token << "\n";
+        if (std::isdigit (token[0])) {      // REPLACE: with a function that checks if multiple numbered strings is a number
             // the current token is a number
+            std::cout << "print 11: token: " << token << "\n";
+            std::istringstream ss(token); // to convert from string to number
+            ss >> number;
             command = factory.create_number_command (number);
         } else {
             // the current token is not a number
             // parser.clear(); // clear the error bit and continue parsing
             // parser >> token;
-	    std::cout << "print 12: Token: " << token << "\n";
+	        std::cout << "print 12: Token: " << token << "\n";
             if (token == "+") {
                 command = factory.create_add_command ();
             } else if (token == "-") {
@@ -132,12 +134,13 @@ bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory
 
         // pushing the commands on the stack based on the infix to postfix algorithm
         int precedence = command->precedence ();
+        std::cout << "precedence: " << std::endl;
         if (precedence == 0 || precedence == -1) {
             // command is either a number or an open paranthesis
             try {
                 postfix [postfix.size () - 1] = command;
             } catch (const std::out_of_range & ex) {
-                postfix.resize (postfix.size () + 5);
+                postfix.resize (postfix.size () + 1);
                 postfix [postfix.size () - 1] = command;
             } // end try-catch
         } else if (precedence == -2) {
@@ -147,7 +150,7 @@ bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory
                 try {
                     postfix [postfix.size () - 1] = temp_stack.pop ();
                 } catch (const std::out_of_range & ex) {
-                    postfix.resize (postfix.size () + 5);
+                    postfix.resize (postfix.size () + 1);
                     postfix [postfix.size () - 1] = temp_stack.pop ();
                 } // end try-catch
             } // end while
@@ -159,7 +162,7 @@ bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory
                 try {
                     postfix [postfix.size () - 1] = temp_stack.pop ();
                 } catch (std::out_of_range & ex) {
-                    postfix.resize (postfix.size () + 5);
+                    postfix.resize (postfix.size () + 1);
                     postfix [postfix.size () - 1] = temp_stack.pop ();
                 } // end try-catch
             } // end while
