@@ -34,14 +34,14 @@ int main (int argc, char * argv [])
     Stack_Expr_Command_Factory factory (receiver);    // factory is what creates the commands
     Array <Expr_Command *> postfix;                 // array where the postfix commands are stored
 
-    infix = "3 + 4";
+    //infix = "3 + 4";
 
     // while loop to keep executing until quit
     bool quit = false;
     while (quit == false) {
-        //std::cout << "Please enter your expression: " << std::endl;
-        //std::getline(std::cin, infix);
-        //std::cout << std::endl;
+        std::cout << "Please enter your expression: " << std::endl;
+        std::getline(std::cin, infix);
+        std::cout << std::endl;
 
         if (infix == "QUIT") {
             quit = true;
