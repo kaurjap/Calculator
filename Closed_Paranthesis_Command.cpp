@@ -8,7 +8,7 @@
 #include "Closed_Paranthesis_Command.h"
 
 Closed_Paranthesis_Command::Closed_Paranthesis_Command (void)
-    : Expr_Command (11)
+    : Expr_Command (-2)
 {
 
 } // end constructor
