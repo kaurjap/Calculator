@@ -6,6 +6,7 @@ project (assignment3) {
  
   specific (make, gnuace) {
     compile_flags += -std=c++11
+    compile_flags += -g
   }
 
   Source_Files {
