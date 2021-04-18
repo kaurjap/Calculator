@@ -51,14 +51,11 @@ int main (int argc, char * argv [])
             std::cout << "print 2 \n";
 
             // execute each command to compute the result
-            /*typedef Expr_Command_Iterator <Expr_Command *> Iterator;
+            typedef Expr_Command_Iterator <Expr_Command *> Iterator;
             for (Iterator iter (postfix); !iter.is_done (); iter.advance ()) {
                 (*iter)->execute ();
                 print (receiver);
-            } // end for */
-
-            postfix [0]->execute ();
-            print (receiver);
+            } // end for
 
             std::cout << "print 3\n";
 
@@ -169,6 +166,15 @@ bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory
             // now push the current command
             temp_stack.push (command);
         } // end if-else
+
+        // pop the remaining operators from the stack and add to postfix
+        while (!temp_stack.is_empty ()) {
+            if (postfix.size () <= size_counter) {
+                postfix.resize (size_counter + 5);
+            } // end if
+            postfix [size_counter] = temp_stack.pop ();
+            size_counter ++;
+        } // end while
     } // end while
 
     return true;
