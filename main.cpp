@@ -191,5 +191,6 @@ bool infix_to_postfix (const std::string & infix, Stack_Expr_Command_Factory & f
 
     postfix.resize (size_counter); // resize postfix to its true size i.e. how many commands
 
+    command = nullptr;
     return true;
 } // end infix_to_postfix
