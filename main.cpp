@@ -99,6 +99,8 @@ bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory
     int number;
     Stack <Expr_Command *> temp_stack;    // stack where all the commands will be pushed temporarily
     Expr_Command * command = 0;
+    size_t size_counter = 0;   // counter to keep track of the size of the array and add elements
+    
     while (!parser.eof ()) {
         // parsing
         parser >> token;
@@ -132,7 +134,6 @@ bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory
             } // end if-else
         } // end if-else
 
-        size_t size_counter = 0;   // counter to keep track of the size of the array and add elements
         // pushing the commands on the stack based on the infix to postfix algorithm
         int precedence = command->precedence ();
         std::cout << "precedence: " << precedence << std::endl;
