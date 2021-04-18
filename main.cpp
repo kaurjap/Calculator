@@ -57,8 +57,8 @@ int main (int argc, char * argv [])
                 print (receiver);
             } // end for */
 
-            // postfix [0]->execute ();
-            // print (receiver);
+            postfix [0]->execute ();
+            print (receiver);
 
             std::cout << "print 3\n";
 
@@ -134,7 +134,7 @@ bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory
 
         // pushing the commands on the stack based on the infix to postfix algorithm
         int precedence = command->precedence ();
-        std::cout << "precedence: " << std::endl;
+        std::cout << "precedence: "<< precedence << std::endl;
         if (precedence == 0 || precedence == -1) {
             // command is either a number or an open paranthesis
             try {
