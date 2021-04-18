@@ -132,10 +132,10 @@ bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory
             } // end if-else
         } // end if-else
 
-        size_t size_counter = -1;   // counter to keep track of the size of the array and add elements
+        size_t size_counter = 0;   // counter to keep track of the size of the array and add elements
         // pushing the commands on the stack based on the infix to postfix algorithm
         int precedence = command->precedence ();
-        std::cout << "precedence: " << std::endl;
+        std::cout << "precedence: " << precedence << std::endl;
         if (precedence == 0 || precedence == -1) {
             // command is either a number or an open paranthesis
             if (postfix.size () <= size_counter) {
