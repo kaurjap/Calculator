@@ -67,6 +67,8 @@ Array_Base <T>::~Array_Base (void)
     } catch (...) {
         throw;
     } // end try-catch
+
+    std::cout << "array destructor called .." << std::endl;
 } // end destructor
 
 
