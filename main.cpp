@@ -78,22 +78,22 @@ int main (int argc, char * argv [])
 bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory, Array <Expr_Command *> & postfix)
 {
 
-    std::istringstream input(infix); // parser
-    input.clear();      // clear the error state of the parser stream just in case
+    std::istringstream parser(infix); // parser
+    parser.clear();      // clear the error state of the parser stream just in case
     std::string token;
     int number;
     Stack <Expr_Command *> temp_stack;    // stack where all the commands will be pushed temporarily
     Expr_Command * command = 0;
-    while (!input.eof ()) {
+    while (!parser.eof ()) {
         // parsing
-        input >> number;
-        if (!input.fail()) {
+        parser >> number;
+        if (!parser.fail()) {
             // the current token is a number
             command = factory.create_number_command (number);
-        } else if (input.fail()) {
+        } else if (parser.fail()) {
             // the current token is not a number
-            input.clear(); // clear the error bit and continue parsing
-            input >> token;
+            parser.clear(); // clear the error bit and continue parsing
+            parser >> token;
             if (token == "+") {
                 command = factory.create_add_command ();
             } else if (token == "-") {
@@ -113,7 +113,6 @@ bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory
             } // end if-else
         } // end if-else
 
-        size_t size_counter = 0;
         // pushing the commands on the stack based on the infix to postfix algorithm
         int precedence = command->precedence ();
         if (precedence == 0 || precedence == 10) {
@@ -123,24 +122,22 @@ bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory
             // command is a closed paranthesis
             while (!temp_stack.is_empty () && temp_stack.top ()->precedence () != 10) {
                 // while a matching open paranthesis is not found, pop from the stack and add to the postfix array
-                if (postfix.size () <= size_counter) {
-                    postfix.resize (size_counter + 5);
-                } // end if
-                
-                postfix [size_counter] = temp_stack.pop ();
-                size_counter ++;
+                try {
+                    postfix [postfix.size () - 1] = temp_stack.pop ();
+                } catch (std::out_of_range & ex) {
+                    postfix.resize (postfix.size () + 5);
+                } // end try-catch
             } // end while
             // also pop the ( expression
             temp_stack.pop ();
         } else {
             // other operators: +, -, *, /, %
             while (!temp_stack.is_empty () && precedence <= temp_stack.top ()->precedence ()) {
-                if (postfix.size () <= size_counter) {
-                    postfix.resize (size_counter + 5);
-                } // end if
-                
-                postfix [size_counter] = temp_stack.pop ();
-                size_counter ++;
+                try {
+                    postfix [postfix.size () - 1] = temp_stack.pop ();
+                } catch (std::out_of_range & ex) {
+                    postfix.resize (postfix.size () + 5);
+                } // end try-catch
             } // end while
 
             // now push the current command
