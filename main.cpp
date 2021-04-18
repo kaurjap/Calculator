@@ -132,41 +132,39 @@ bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory
             } // end if-else
         } // end if-else
 
+        size_t size_counter = -1;   // counter to keep track of the size of the array and add elements
         // pushing the commands on the stack based on the infix to postfix algorithm
         int precedence = command->precedence ();
-        std::cout << "precedence: "<< precedence << std::endl;
+        std::cout << "precedence: " << std::endl;
         if (precedence == 0 || precedence == -1) {
             // command is either a number or an open paranthesis
-            try {
-                postfix [postfix.size () - 1] = command;
-            } catch (const std::out_of_range & ex) {
-                postfix.resize (postfix.size () + 1);
-                postfix [postfix.size () - 1] = command;
-            } // end try-catch
+            if (postfix.size () <= size_counter) {
+                postfix.resize (size_counter + 5);
+            } // end if
+
+            postfix [size_counter] = command;
+            size_counter ++;
         } else if (precedence == -2) {
             // command is a closed paranthesis
             while (!temp_stack.is_empty () && temp_stack.top ()->precedence () != -1) {
                 // while a matching open paranthesis is not found, pop from the stack and add to the postfix array
-                try {
-                    postfix [postfix.size () - 1] = temp_stack.pop ();
-                } catch (const std::out_of_range & ex) {
-                    postfix.resize (postfix.size () + 1);
-                    postfix [postfix.size () - 1] = temp_stack.pop ();
-                } // end try-catch
+                if (postfix.size () <= size_counter) {
+                    postfix.resize (size_counter + 5);
+                } // end if
+                postfix [size_counter] = temp_stack.pop ();
+                size_counter ++;
             } // end while
             // also pop the ( expression
             temp_stack.pop ();
         } else {
             // other operators: +, -, *, /, %
-            while (!temp_stack.is_empty () && precedence <= temp_stack.top ()->precedence ()) {      // CRITICAL CHANGE MADE: removed the <= sign 
-                try {
-                    postfix [postfix.size () - 1] = temp_stack.pop ();
-                } catch (std::out_of_range & ex) {
-                    postfix.resize (postfix.size () + 1);
-                    postfix [postfix.size () - 1] = temp_stack.pop ();
-                } // end try-catch
+            while (!temp_stack.is_empty () && precedence <= temp_stack.top ()->precedence ()) {
+                if (postfix.size () <= size_counter) {
+                    postfix.resize (size_counter + 5);
+                } // end if
+                postfix [size_counter] = temp_stack.pop ();
+                size_counter ++;
             } // end while
-
             // now push the current command
             temp_stack.push (command);
         } // end if-else
