@@ -57,7 +57,7 @@ int main (int argc, char * argv [])
             } // end for */
 
             postfix [0]->execute ();
-            print (receiver);
+            // print (receiver);
 
             std::cout << "print 3\n";
 
