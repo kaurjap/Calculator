@@ -11,14 +11,14 @@
 bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory, Array <Expr_Command *> & postfix);
 
 template <typename T>
- void print (Stack <T> stack) {
-     std::cout << "\n------- STACK ---------\n";
-     size_t size = stack.size();
-     std::cout << "size: " << stack.size() << std::endl;
-     for (size_t i = 0; i < size; ++i) {
-         std::cout << stack.top() << std::endl;
-         stack.pop();
-     } // end for
+void print (Stack <T> stack) {
+    std::cout << "\n------- STACK ---------\n";
+    size_t size = stack.size();
+    std::cout << "size: " << stack.size() << std::endl;
+    for (size_t i = 0; i < size; ++i) {
+        std::cout << stack.top() << std::endl;
+        stack.pop();
+    } // end for
  } // end print
 
 int main (int argc, char * argv [])
