@@ -10,6 +10,16 @@
 // function prototypes
 bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory, Array <Expr_Command *> & postfix);
 
+template <typename T>
+ void print (Stack <T> stack) {
+     std::cout << "\n------- STACK ---------\n";
+     size_t size = stack.size();
+     std::cout << "size: " << stack.size() << std::endl;
+     for (size_t i = 0; i < size; ++i) {
+         std::cout << stack.top() << std::endl;
+         stack.pop();
+     } // end for
+ } // end print
 
 int main (int argc, char * argv [])
 {
@@ -43,14 +53,15 @@ int main (int argc, char * argv [])
             typedef Expr_Command_Iterator <Expr_Command *> Iterator;
             for (Iterator iter (postfix); !iter.is_done (); iter.advance ()) {
                 (*iter)->execute ();
+                print (receiver);
             } // end for
 
             std::cout << "print 3\n";
 
-            int result = receiver.top();
+            // int result = receiver.top();
 
-            std::cout << "print 4\n";
-            std::cout << "Result: " << result << std::endl;
+            // std::cout << "print 4\n";
+            // std::cout << "Result: " << result << std::endl;
         } // end if-else  
 
     } // end while
@@ -132,7 +143,7 @@ bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory
             temp_stack.pop ();
         } else {
             // other operators: +, -, *, /, %
-            while (!temp_stack.is_empty () && precedence < temp_stack.top ()->precedence ()) {
+            while (!temp_stack.is_empty () && precedence < temp_stack.top ()->precedence ()) {      // CRITICAL CHANGE MADE: removed the <= sign 
                 try {
                     postfix [postfix.size () - 1] = temp_stack.pop ();
                 } catch (std::out_of_range & ex) {
