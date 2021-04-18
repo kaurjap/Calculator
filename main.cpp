@@ -41,7 +41,7 @@ int main (int argc, char * argv [])
 
             // execute each command to compute the result
             // typedef Expr_Command_Iterator <Expr_Command *> Iterator;
-            for (Expr_Command_Iterator <Expr_Command *> Iterator iter (postfix); !iter.is_done (); iter.advance ()) {
+            for (Expr_Command_Iterator <Expr_Command *> iter (postfix); !iter.is_done (); iter.advance ()) {
                 (*iter)->execute ();
             } // end for
 
