@@ -71,10 +71,10 @@ int main (int argc, char * argv [])
             
             std::cout << "print 3\n";
 
-            // int result = receiver.top();
+            int result = receiver.top();
 
-            // std::cout << "print 4\n";
-            // std::cout << "Result: " << result << std::endl;
+            std::cout << "print 4\n";
+            std::cout << "Result: " << result << std::endl;
         } // end if-else  
 
     } // end while
