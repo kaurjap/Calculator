@@ -94,7 +94,7 @@ int main (int argc, char * argv [])
  */
 
 // method to perform the actual parsing of the user input to create an array of commands that are executable
-bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory, Array <Expr_Command *> & postfix)
+bool infix_to_postfix (const std::string & infix, Stack_Expr_Command_Factory & factory, Array <Expr_Command *> & postfix)
 {
 
     std::stringstream parser(infix); // parser
