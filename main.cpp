@@ -40,8 +40,8 @@ int main (int argc, char * argv [])
             std::cout << "print 2 \n";
 
             // execute each command to compute the result
-            // typedef Expr_Command_Iterator <Expr_Command *> Iterator;
-            for (Expr_Command_Iterator <Expr_Command *> iter (postfix); !iter.is_done (); iter.advance ()) {
+            typedef Expr_Command_Iterator <Expr_Command *> Iterator;
+            for (Iterator iter (postfix); !iter.is_done (); iter.advance ()) {
                 (*iter)->execute ();
             } // end for
 
@@ -124,7 +124,7 @@ bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory
                 // while a matching open paranthesis is not found, pop from the stack and add to the postfix array
                 try {
                     postfix [postfix.size () - 1] = temp_stack.pop ();
-                } catch (std::out_of_range & ex) {
+                } catch (const std::out_of_range & ex) {
                     postfix.resize (postfix.size () + 5);
                 } // end try-catch
             } // end while
@@ -132,7 +132,7 @@ bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory
             temp_stack.pop ();
         } else {
             // other operators: +, -, *, /, %
-            while (!temp_stack.is_empty () && precedence <= temp_stack.top ()->precedence ()) {
+            while (!temp_stack.is_empty () && precedence < temp_stack.top ()->precedence ()) {
                 try {
                     postfix [postfix.size () - 1] = temp_stack.pop ();
                 } catch (std::out_of_range & ex) {
