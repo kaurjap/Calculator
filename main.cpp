@@ -69,6 +69,8 @@ int main (int argc, char * argv [])
 
             std::cout << "print 4\n";
             std::cout << "Result: " << result << std::endl;
+
+            receiver.clear (); // clear the stack that performs operations after each run
         } // end if-else  
 
     } // end while
