@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>          // for std::istringstream
+#include <cctype>	    // for std::isdigit () used in parsing
 
 #include "Stack_Expr_Command_Factory.h"
 #include "Expr_Command_Iterator.h"
@@ -56,7 +57,7 @@ int main (int argc, char * argv [])
                 print (receiver);
             } // end for */
 
-            postfix [0]->execute ();
+            // postfix [0]->execute ();
             // print (receiver);
 
             std::cout << "print 3\n";
@@ -92,7 +93,7 @@ int main (int argc, char * argv [])
 bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory, Array <Expr_Command *> & postfix)
 {
 
-    std::istringstream parser(infix); // parser
+    std::stringstream parser(infix); // parser
     parser.clear();      // clear the error state of the parser stream just in case
     std::string token;
     int number;
@@ -100,16 +101,16 @@ bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory
     Expr_Command * command = 0;
     while (!parser.eof ()) {
         // parsing
-        parser >> number;
-        if (!parser.fail()) {
-            std::cout << number << "\n";
+        parser >> token;
+        if (std::isdigit (token[0])) {
+            std::cout << "print 11: token: " << token << "\n";
             // the current token is a number
             command = factory.create_number_command (number);
         } else {
             // the current token is not a number
-            parser.clear(); // clear the error bit and continue parsing
-            parser >> token;
-            std::cout << token << "\n";
+            // parser.clear(); // clear the error bit and continue parsing
+            // parser >> token;
+	    std::cout << "print 12: Token: " << token << "\n";
             if (token == "+") {
                 command = factory.create_add_command ();
             } else if (token == "-") {
