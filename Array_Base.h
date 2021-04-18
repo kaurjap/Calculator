@@ -16,7 +16,7 @@
 
 #include <cstring>          // for size_t definition
 #include <stdexcept>        // for std::out_of_bounds exception
-#include "Array_Auto_Ptr.h"
+//#include "Array_Auto_Ptr.h"
 
 /**
  * @class Array_Base
@@ -186,8 +186,8 @@ public:
   Array_Base <T> slice (size_t begin, size_t end) const;
 
 protected:
-  /// Pointer to the actual data using the proxy auto pointer class
-  Array_Auto_Ptr <T> * data_;
+  /// Pointer to the actual data
+  T * data_;
 
   /// Current size of the array.
   size_t cur_size_;

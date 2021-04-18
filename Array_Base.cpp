@@ -62,13 +62,11 @@ Array_Base <T>::Array_Base (const Array_Base <T> & array)
 template <typename T>
 Array_Base <T>::~Array_Base (void)
 {
-    /*
     try {
         delete [] data_;
     } catch (...) {
         throw;
     } // end try-catch
-    */
 } // end destructor
 
 
