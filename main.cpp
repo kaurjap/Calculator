@@ -65,7 +65,7 @@ int main (int argc, char * argv [])
             postfix[0]->execute ();
             print (receiver);
             postfix[1]->execute ();
-            //print (receiver);
+            print (receiver);
             //postfix[2]->execute ();
             //print (receiver);
             
