@@ -16,7 +16,7 @@
 
 #include <cstring>          // for size_t definition
 #include <stdexcept>        // for std::out_of_bounds exception
-
+#include "Array_Auto_Ptr.h"
 
 /**
  * @class Array_Base
