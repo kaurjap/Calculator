@@ -9,7 +9,7 @@
 #include "Expr_Command_Iterator.h"
 
 // function prototypes
-bool infix_to_postfix (const std::string & infix, Expr_Command_Factory & factory, Array <Expr_Command *> & postfix);
+bool infix_to_postfix (const std::string & infix, Stack_Expr_Command_Factory & factory, Array <Expr_Command *> & postfix);
 
 template <typename T>
 void print (Stack <T> stack) {
