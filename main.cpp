@@ -51,24 +51,18 @@ int main (int argc, char * argv [])
 
             // convert from the infix format to the postfix format i.e. an array of command * in postfix format
             infix_to_postfix (infix, factory, postfix);
+            std::cout << "Postfix size: " << postfix.size () << "\n";
 
             std::cout << "print 2 \n";
 
             // execute each command to compute the result
-            /*typedef Expr_Command_Iterator <Expr_Command *> Iterator;
+            typedef Expr_Command_Iterator <Expr_Command *> Iterator;
             for (Iterator iter (postfix); !iter.is_done (); iter.advance ()) {
                 (*iter)->execute ();
                 print (receiver);
-            } // end for*/
-            std::cout << "Postfix size: " << postfix.size () << "\n";
-
-            postfix[0]->execute ();
-            print (receiver);
-            postfix[1]->execute ();
-            print (receiver);
-            postfix[2]->execute ();
-            print (receiver);
+            } // end for
             
+
             std::cout << "print 3\n";
 
             int result = receiver.top();
