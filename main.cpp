@@ -11,6 +11,7 @@
 // function prototypes
 bool infix_to_postfix (const std::string & infix, Stack_Expr_Command_Factory & factory, Array <Expr_Command *> & postfix);
 
+
 template <typename T>
 void print (Stack <T> stack) {
     std::cout << "\n------- STACK ---------\n";
@@ -21,6 +22,7 @@ void print (Stack <T> stack) {
         stack.pop();
     } // end for
  } // end print
+
 
 int main (int argc, char * argv [])
 {
@@ -56,6 +58,7 @@ int main (int argc, char * argv [])
                 (*iter)->execute ();
                 print (receiver);
             } // end for*/
+            std::cout << "Postfix size: " << postfix.size () << "\n";
 
             postfix[0]->execute ();
             print (receiver);
