@@ -36,8 +36,6 @@ int main (int argc, char * argv [])
         if (infix == "QUIT") {
             quit = true;
         } else {
-            std::cout << infix;
-
             // convert from the infix format to the postfix format i.e. an array of command * in postfix format
             // proceed if the input is valid
             if (calculator.infix_to_postfix ()) {
