@@ -3,18 +3,6 @@
 #include <iostream>
 #include "Calculate.h"
 
-template <typename T>
-void print (Stack <T> stack) {
-    std::cout << "\n------- STACK ---------\n";
-    size_t size = stack.size();
-    //std::cout << "size: " << stack.size() << std::endl;
-    for (size_t i = 0; i < size; ++i) {
-        std::cout << stack.top() << std::endl;
-        stack.pop();
-    } // end for
-    std::cout <<"-------------------------- \n";
- } // end print
-
 
 int main (int argc, char * argv [])
 {
@@ -74,4 +62,11 @@ int main (int argc, char * argv [])
 
 // COMMENT: Create a design that does not require having parenthesis as
 // as command object since parenthesis are not executed.
-// SOLUTION 
+// SOLUTION Dr. Hill, I implemented the template method pattern to make a Binary
+// Command class the includes the common behavior of the binary sub class commands.
+// While doing that, I also realized that the only reason I had created Open Paranthesis
+// and Closed Paranthesis Objects was to keep track of their precedence value to distinguish
+// them. This could have been done using the Expr_Command class i.e. the base of all classes.
+// Since, I was a partially abstract class, and not a pure abstract class, it could've been
+// instntiated. Hence, I created an instance of that to keep track of the precedence and managed
+// the parantheses that way.
