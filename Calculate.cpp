@@ -68,7 +68,7 @@ bool Calculate::infix_to_postfix (void)
     while (!parser.eof ()) {
         // parsing
         parser >> token;
-        if (std::isdigit (token[0])) {
+        if (std::isdigit (token[0]) || std::isdigit (token[1])) {
             // the current token is a number
             std::istringstream ss(token); // to convert from string to number
             ss >> number;
