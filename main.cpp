@@ -37,19 +37,21 @@ int main (int argc, char * argv [])
             quit = true;
         } else {
             std::cout << infix;
-            std::cout << "print 1 \n";
 
             // convert from the infix format to the postfix format i.e. an array of command * in postfix format
-            calculator.infix_to_postfix ();
-            std::cout << "print 2 \n";
+            // proceed if the input is valid
+            if (calculator.infix_to_postfix ()) {
+                // evaluate the postfix expression
+                calculator.eval_postfix ();
 
-            calculator.eval_postfix ();
-            std::cout << "print 3\n";
+                // access the result
+                int result = calculator.result ();
+                std::cout << "Result: " << result << std::endl;
 
-            int result = calculator.result ();
-
-            std::cout << "print 4\n";
-            std::cout << "Result: " << result << std::endl;
+            } else {
+                std::cout << "Invalid input entered. Please try again." << std::endl;
+                quit = true;
+            } // end if-else
 
             // clear the state of the calculator to reset for the next run
             calculator.reset ();
