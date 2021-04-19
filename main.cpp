@@ -53,10 +53,13 @@ int main (int argc, char * argv [])
 
             std::cout << "print 2 \n";
 
-            // execute each command to compute the result
+            size_t i = 0;
+	    // execute each command to compute the result
             typedef Expr_Command_Iterator <Expr_Command *> Iterator;
             for (Iterator iter (postfix); !iter.is_done (); iter.advance ()) {
                 (*iter)->execute ();
+		i++;
+		std::cout << "i: " << i << std::endl;
                 print (receiver);
             } // end for
             
@@ -69,6 +72,7 @@ int main (int argc, char * argv [])
             std::cout << "Result: " << result << std::endl;
 
             receiver.clear (); // clear the stack that performs operations after each run
+	    postfix.resize (0); // clear the postfix array before next run
         } // end if-else  
 
     } // end while
@@ -189,6 +193,6 @@ bool infix_to_postfix (const std::string & infix, Stack_Expr_Command_Factory & f
 
     postfix.resize (size_counter); // resize postfix to its true size i.e. how many commands
 
-    delete command;    
+    //delete command;    
     return true;
 } // end infix_to_postfix

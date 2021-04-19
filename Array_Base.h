@@ -14,6 +14,8 @@
 #ifndef _ARRAY_BASE_H_
 #define _ARRAY_BASE_H_
 
+#include <iostream>       // TO BE DELETED
+
 #include <cstring>          // for size_t definition
 #include <stdexcept>        // for std::out_of_bounds exception
 //#include "Array_Auto_Ptr.h"
