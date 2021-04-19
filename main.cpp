@@ -148,14 +148,17 @@ bool infix_to_postfix (const std::string & infix, Stack_Expr_Command_Factory & f
         // pushing the commands on the stack based on the infix to postfix algorithm
         int precedence = command->precedence ();
         std::cout << "precedence: " << precedence << std::endl;
-        if (precedence == 0 || precedence == -1) {
-            // command is either a number or an open paranthesis
+        if (precedence == 0) {
+            // command is either a number
             if (postfix.size () <= size_counter) {
                 postfix.resize (size_counter + 5);
             } // end if
 
             postfix [size_counter] = command;
             size_counter ++;
+        } else if (precedence == -1) {
+            // command is an open paranthesis
+            temp_stack.push (command);
         } else if (precedence == -2) {
             // command is a closed paranthesis
             while (!temp_stack.is_empty () && temp_stack.top ()->precedence () != -1) {
