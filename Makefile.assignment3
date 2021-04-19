@@ -31,8 +31,8 @@ LIBPREFIX     = lib
 LIBSUFFIX     = 
 GENFLAGS      = -O
 LDLIBS        = -ldl $(subst lib,-l,$(sort $(basename $(notdir $(wildcard /usr/lib/librt.so /lib/librt.so))))) -lpthread
-OBJS          = Expr_Command$(OBJEXT) Add_Command$(OBJEXT) Subtract_Command$(OBJEXT) Multiply_Command$(OBJEXT) Divide_Command$(OBJEXT) Modulus_Command$(OBJEXT) Number_Command$(OBJEXT) Open_Paranthesis_Command$(OBJEXT) Closed_Paranthesis_Command$(OBJEXT) Expr_Command_Factory$(OBJEXT) Stack_Expr_Command_Factory$(OBJEXT) main$(OBJEXT)
-SRC           = Expr_Command.cpp Add_Command.cpp Subtract_Command.cpp Multiply_Command.cpp Divide_Command.cpp Modulus_Command.cpp Number_Command.cpp Open_Paranthesis_Command.cpp Closed_Paranthesis_Command.cpp Expr_Command_Factory.cpp Stack_Expr_Command_Factory.cpp main.cpp
+OBJS          = Expr_Command$(OBJEXT) Add_Command$(OBJEXT) Subtract_Command$(OBJEXT) Multiply_Command$(OBJEXT) Divide_Command$(OBJEXT) Modulus_Command$(OBJEXT) Number_Command$(OBJEXT) Open_Paranthesis_Command$(OBJEXT) Closed_Paranthesis_Command$(OBJEXT) Expr_Command_Factory$(OBJEXT) Stack_Expr_Command_Factory$(OBJEXT) Calculate$(OBJEXT) main$(OBJEXT)
+SRC           = Expr_Command.cpp Add_Command.cpp Subtract_Command.cpp Multiply_Command.cpp Divide_Command.cpp Modulus_Command.cpp Number_Command.cpp Open_Paranthesis_Command.cpp Closed_Paranthesis_Command.cpp Expr_Command_Factory.cpp Stack_Expr_Command_Factory.cpp Calculate.cpp main.cpp
 LINK.cc       = $(LD) $(LDFLAGS)
 EXPORTFLAGS   = 
 DEPLIBS       = $(foreach lib, , $(foreach libpath, ., $(wildcard $(libpath)/lib$(lib).a)))
@@ -82,6 +82,9 @@ Expr_Command_Factory$(OBJEXT): Expr_Command_Factory.cpp
 
 Stack_Expr_Command_Factory$(OBJEXT): Stack_Expr_Command_Factory.cpp
 	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) Stack_Expr_Command_Factory.cpp
+
+Calculate$(OBJEXT): Calculate.cpp
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) Calculate.cpp
 
 main$(OBJEXT): main.cpp
 	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) main.cpp
