@@ -26,3 +26,8 @@ int Expr_Command::precedence (void)
 {
     return this->precedence_val_; // using this-> because polymorphic
 } // end precedence
+
+void Expr_Command::execute (void)
+{
+    // subclasses execute their own execute methods, this is included to make use of the base class for the paranthesis command
+} // end execute

@@ -38,7 +38,7 @@ public:
     * by each subclass. 
     * 
     */
-    virtual void execute (void) = 0;
+    virtual void execute (void);
 
     /**
      * method to access precedence value
