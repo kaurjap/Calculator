@@ -18,8 +18,8 @@
 /**
  * @class Expr_Command
  *
- * This is a pure abstract class. 
- * Provide the common implement of all the commands in this abstract class.
+ * This is an abstract class that is partially implemented. 
+ * Provides the common implementation of all the commands in this abstract class.
  */
 class Expr_Command
 {

@@ -86,9 +86,11 @@ bool Calculate::infix_to_postfix (void)
             } else if (token == "%") {
                 command = factory.create_modulus_command ();
             } else if (token == "(") {
+                // create a command with precedence value -1 to distinguish open parathesis
                 command = new Expr_Command (-1);
                 //command = factory.create_open_paranthesis_command ();
             } else if (token == ")") {
+                // create a command with precedence value -2 to distinguish closed parathesis
                 command = new Expr_Command (-2);
                 //command = factory.create_closed_paranthesis_command ();
             } else {
