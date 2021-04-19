@@ -14,8 +14,7 @@
 #ifndef _SUBTRACT_COMMAND_H_
 #define _SUBTRACT_COMMAND_H_
 
-#include "Expr_Command.h"
-#include "Stack.h"
+#include "Binary_Command.h"
 
 /**
  * @class Subtract_Command

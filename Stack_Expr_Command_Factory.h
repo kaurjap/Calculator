@@ -45,10 +45,6 @@ public:
 
     virtual Modulus_Command * create_modulus_command (void);
     
-    virtual Open_Paranthesis_Command * create_open_paranthesis_command (void);
-
-    virtual Closed_Paranthesis_Command * create_closed_paranthesis_command (void);
-
 private:
     Stack <int> & stack_;
     

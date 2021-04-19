@@ -14,8 +14,7 @@
 #ifndef _MULTIPLY_COMMAND_H_
 #define _MULTIPLY_COMMAND_H_
 
-#include "Expr_Command.h"
-#include "Stack.h"
+#include "Binary_Command.h"
 
 /**
  * @class Add_Command

@@ -68,3 +68,10 @@ int main (int argc, char * argv [])
 // methods for getting the result, changing the infix value, etc. Hence, I
 // removed the those methods from here and included their implementation in
 // facade class.
+
+// PLEASE NOTE: The following was a comment provided by Dr. Hill in my Open and Closed Paranthesis 
+// Command files which I disregarded while solving the problem mentioned in the comment
+
+// COMMENT: Create a design that does not require having parenthesis as
+// as command object since parenthesis are not executed.
+// SOLUTION 
