@@ -16,11 +16,12 @@ template <typename T>
 void print (Stack <T> stack) {
     std::cout << "\n------- STACK ---------\n";
     size_t size = stack.size();
-    std::cout << "size: " << stack.size() << std::endl;
+    //std::cout << "size: " << stack.size() << std::endl;
     for (size_t i = 0; i < size; ++i) {
         std::cout << stack.top() << std::endl;
         stack.pop();
     } // end for
+    std::cout <<"-------------------------- \n";
  } // end print
 
 
@@ -53,13 +54,10 @@ int main (int argc, char * argv [])
 
             std::cout << "print 2 \n";
 
-            size_t i = 0;
 	    // execute each command to compute the result
             typedef Expr_Command_Iterator <Expr_Command *> Iterator;
             for (Iterator iter (postfix); !iter.is_done (); iter.advance ()) {
                 (*iter)->execute ();
-		i++;
-		std::cout << "i: " << i << std::endl;
                 print (receiver);
             } // end for
             
