@@ -14,6 +14,7 @@
 #ifndef _NUMBER_COMMAND_H_
 #define _NUMBER_COMMAND_H_
 
+#include "Stack.h"
 #include "Expr_Command.h"
 
 /**
