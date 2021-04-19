@@ -14,9 +14,11 @@
 #ifndef _ARRAY_BASE_H_
 #define _ARRAY_BASE_H_
 
+#include <iostream>       // TO BE DELETED
+
 #include <cstring>          // for size_t definition
 #include <stdexcept>        // for std::out_of_bounds exception
-
+//#include "Array_Auto_Ptr.h"
 
 /**
  * @class Array_Base
@@ -186,7 +188,7 @@ public:
   Array_Base <T> slice (size_t begin, size_t end) const;
 
 protected:
-  /// Pointer to the actual data.
+  /// Pointer to the actual data
   T * data_;
 
   /// Current size of the array.

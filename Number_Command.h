@@ -14,8 +14,7 @@
 #ifndef _NUMBER_COMMAND_H_
 #define _NUMBER_COMMAND_H_
 
-#include "Expr_Command.h"
-#include "Stack.h"
+#include "Binary_Command.h"
 
 /**
  * @class Number_Command

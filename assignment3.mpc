@@ -6,24 +6,26 @@ project (assignment3) {
  
   specific (make, gnuace) {
     compile_flags += -std=c++11
+    compile_flags += -g
   }
 
   Source_Files {
     Expr_Command.cpp
+    Binary_Command.cpp
     Add_Command.cpp
     Subtract_Command.cpp
     Multiply_Command.cpp
     Divide_Command.cpp
     Modulus_Command.cpp
     Number_Command.cpp
-    Open_Paranthesis_Command.cpp
-    Closed_Paranthesis_Command.cpp
     Expr_Command_Factory.cpp
     Stack_Expr_Command_Factory.cpp
+    Calculate.cpp
     main.cpp
   }
 
   Template_Files {
+    Array_Auto_Ptr.cpp
     Array_Base.cpp
     Array.cpp
     Stack.cpp

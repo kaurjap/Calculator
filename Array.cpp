@@ -90,7 +90,7 @@ const Array <T> & Array <T>::operator = (const Array <T> & rhs)
 template <typename T>
 void Array <T>::resize (size_t new_size)
 {
-    if (new_size < this->cur_size_ || new_size < this->max_size_) {
+    if (new_size < this->cur_size_ || new_size <= this->max_size_) {
         this->cur_size_ = new_size;
     } else if (new_size > this->max_size_) {
         // create a new array with the bigger size
