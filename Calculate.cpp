@@ -70,13 +70,11 @@ bool Calculate::infix_to_postfix (void)
         parser >> token;
         if (std::isdigit (token[0])) {
             // the current token is a number
-            std::cout << "print 11: token: " << token << "\n";
             std::istringstream ss(token); // to convert from string to number
             ss >> number;
             command = factory.create_number_command (number);
         } else {
             // the current token is not a number
-	        std::cout << "print 12: Token: " << token << "\n";
             if (token == "+") {
                 command = factory.create_add_command ();
             } else if (token == "-") {
@@ -98,7 +96,6 @@ bool Calculate::infix_to_postfix (void)
 
         // pushing the commands on the stack based on the infix to postfix algorithm
         int precedence = command->precedence ();
-        std::cout << "precedence: " << precedence << std::endl;
         if (precedence == 0) {
             // command is either a number
             if (postfix.size () <= size_counter) {
