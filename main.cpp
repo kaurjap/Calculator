@@ -50,7 +50,6 @@ int main (int argc, char * argv [])
 
             } else {
                 std::cout << "Invalid input entered. Please try again." << std::endl;
-                quit = true;
             } // end if-else
 
             // clear the state of the calculator to reset for the next run
